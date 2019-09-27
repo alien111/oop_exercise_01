@@ -11,10 +11,6 @@ BitString::BitString() {
 
 }
 
-BitString::BitString(unsigned long long first, unsigned long long second) {
-    firstHalf = first;
-    secondHalf = second;
-}
 
 void BitString::Enter() {
     std::string str;
