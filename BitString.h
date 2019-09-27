@@ -7,8 +7,7 @@ class BitString
 public:
 
     BitString();
-    BitString(unsigned long long first, unsigned long long second);
-
+    
     void Enter();
 
     BitString _not();
