@@ -153,7 +153,7 @@ int BitString::compPosBitNumber(BitString &bs) {
 
     if (thisNumber > bsNumber) return 0;
     if (thisNumber < bsNumber) return 1;
-    else return 2;
+    else return -1;
 
 }
 
