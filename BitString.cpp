@@ -159,81 +159,9 @@ int BitString::compPosBitNumber(BitString &bs) {
 
 void BitString::isArgInThis(const BitString &bs) {
 
-    BitString lbs;
-    lbs.firstHalf = firstHalf;
-    lbs.secondHalf = secondHalf;
-    BitString sbs;
-    sbs.firstHalf = bs.firstHalf;
-    sbs.secondHalf = bs.secondHalf;
-    
-    std::vector<int> vflbs;
-    std::vector<int> vfsbs;
-
-    std::vector<int> vslbs;
-    std::vector<int> vssbs;
-    
-
-    while (lbs.firstHalf != 0) {
-        vflbs.push_back(lbs.firstHalf % 2);
-        lbs.firstHalf /= 2;
-    }
-
-    
-    for (int i = vflbs.size(); i < 64 ; i++) {
-        vflbs.push_back(0);
-    }
-    
-    while (lbs.secondHalf != 0) {
-        vslbs.push_back(lbs.secondHalf % 2);
-        lbs.secondHalf /= 2;
-    }
-    for (int i = vslbs.size(); i < 64; i++) {
-        vslbs.push_back(0);
-    }
-    
-
-
-
-
-
-    while (sbs.firstHalf != 0) {
-        vfsbs.push_back(sbs.firstHalf % 2);
-        sbs.firstHalf /= 2;
-    }
-
-    for (int i = vfsbs.size(); i < 64 ; i++) {
-        vfsbs.push_back(0);
-    }
-
-
-    while (sbs.secondHalf != 0) {
-        vssbs.push_back(sbs.secondHalf % 2);
-        sbs.secondHalf /= 2;
-    }
-    for (int i = vssbs.size(); i < 64; i++) {
-        vssbs.push_back(0);
-    }
-
-
-
-    for (int i = 0; i < vfsbs.size() && i < vflbs.size(); i++) {
-        
-        if (vfsbs[i] == 1 && vflbs[i] != 1) {
-            std::cout << "NO\n";
-            return;
-        }
-    }
-
-
-
-    for (int i = 0; i < vssbs.size() && i < vslbs.size(); i++) { 
-        if (vssbs[i] == 1 && vslbs[i] != 1) {
-            std::cout << "NO\n";
-            return;
-        }
-    }
-
-    std::cout << "YES\n";
+    BitString ans = _and(bs);
+    if (ans.firstHalf == bs.firstHalf && ans.secondHalf == bs.secondHalf) std::cout << "YES";
+    else std::cout << "NO";
 
 }
 
